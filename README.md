@@ -12,7 +12,7 @@ Button with rounded corners on the updated design on YouTube, which implemented 
 
 #### Web site: [**y2mate.com**][1]
 
-###### To add button **"Y2mate"** in the browser, you need to install the extension [**Tampermonkey**][2].
+###### To add button **"Y2mate"** in the browser, you need to install the extension [**Tampermonkey**][2]
 
 [1]: https://www.scip.ch/en/?labs.20140515
 [2]: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en
