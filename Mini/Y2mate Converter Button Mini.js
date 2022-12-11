@@ -2,7 +2,7 @@
 // @name        Y2mate Converter Button Mini
 // @namespace   https://www.y2mate.com/
 // @version     1.8
-// @date        2023-07-23
+// @date        2022-12-11
 // @author      A Koi (mod: Li Deheng)
 // @description Y2mate Downloader: Download Video and Audio for free
 // @homepage    https://y2mate.com/
@@ -58,7 +58,7 @@ var AKoiMain = {
 				AKoiMain.checkChangeVid()
 			}
 			return !0 }
-		catch (o) { console.log("Ошибка в функции Y2mate.DocOnLoad. ", o) } },
+		catch (o) { console.log("Error in function Y2mate.DocOnLoad. ", o) } },
 	checkChangeVid: function () {
 		setTimeout(function () {
 			AKoiMain.oldUrl == window.location.href ? AKoiMain.checkChangeVid() : AKoiMain.WaitLoadDom(window.document) }, 1e3) },
@@ -69,20 +69,20 @@ var AKoiMain = {
 		try {
 			var t = "https://y2mate.com/youtube/" + AKoiMain.vid + "/?utm_source=chrome_addon";
 			window.open(t, "_blank") }
-		catch (o) { console.log("Ошибка в функции Y2mate.OnButtonClick. ", o) } },
+		catch (o) { console.log("Error in function Y2mate.OnButtonClick. ", o) } },
 	GetCommandButton: function () {
 		try {
 			var o = document.createElement("button");
 			return o.id = "y2mateconverter",
 				o.className = "yt-uix-tooltip",
 				o.setAttribute("type", "button"),
-				o.setAttribute("title", "Скачать с помощью\ny2mate.com"),
+				o.setAttribute("title", "Download with\ny2mate.com"),
 				o.innerHTML = "⬇︎",
 				o.addEventListener("click", function (o) { AKoiMain.goToY2mate(o) }, !0),
 				o.setAttribute("style", "display: flex; justify-content: center; align-items: center; min-height: 25px; max-height:36px; position: relative; top: 1px; cursor: pointer; font: 20px Arial; background: rgba(255,0,62,0.3); color: transparent; -webkit-text-stroke: 1.2px rgba(240,240,240,1); padding: 5px 8px 5px 8px; margin: 0px 8px; border-radius: 23px; border: 0px solid transparent; font-weight: bold"),
 				o.setAttribute("onmouseover", "this.style.backgroundColor='rgba(255,0,62,0.5)'"),
 				o.setAttribute("onmouseout", "this.style.backgroundColor='rgba(255,0,62,0.3)'"), o }
-		catch (o) { console.log("Ошибка в функции Y2mate.GetCommandButton. ", o) } },
+		catch (o) { console.log("Error in function Y2mate.GetCommandButton. ", o) } },
 	getVid: function (o) {
 		var t = o.location.toString().match(/^.*((m\.)?youtu\.be\/|vi?\/|u\/\w\/|embed\/|\?vi?=|\&vi?=)([^#\&\?]*).*/);
 		return !(!t || !t[3]) && t[3] } };
