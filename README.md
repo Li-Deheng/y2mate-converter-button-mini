@@ -14,5 +14,5 @@ Button with rounded corners on the updated design on YouTube, which implemented 
 
 ###### To add button **"Y2mate"** in the browser, you need to install the extension [**Tampermonkey**][2]
 
-[1]: https://www.scip.ch/en/?labs.20140515
+[1]: https://www.y2mate.com/en448
 [2]: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en
