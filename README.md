@@ -1,7 +1,7 @@
 # <img style="width:26px; height:26px;" src="https://github.com/Li-Deheng/y2mate-converter-button-mini/blob/main/y2mate.png" alt="Y2mate"> Y2mate Converter Button
 
 ## Description
-The extension adds a button to the site page for downloading video or audio..<br>
+The extension adds a button to the site page for downloading video or audio.<br>
 Button with rounded corners on the updated design on YouTube, which implemented at the end of 2022 year.
 <br><br>
 
