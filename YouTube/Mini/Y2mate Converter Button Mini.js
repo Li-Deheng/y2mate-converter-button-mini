@@ -77,9 +77,9 @@ var AKoiMain = {
 				o.className = "yt-uix-tooltip",
 				o.setAttribute("type", "button"),
 				o.setAttribute("title", "Download with\ny2mate.com"),
-				o.innerHTML = "⬇︎",
+				o.innerHTML = '<img width="32px" height="32px" src="https://user-images.githubusercontent.com/48417413/220382362-140f7b8a-55bf-4197-89a3-0928560f710d.svg">',
 				o.addEventListener("click", function (o) { AKoiMain.goToY2mate(o) }, !0),
-				o.setAttribute("style", "display: flex; justify-content: center; align-items: center; min-height: 25px; max-height:36px; position: relative; top: 1px; cursor: pointer; font: 20px Arial; background: rgba(255,0,62,0.3); color: transparent; -webkit-text-stroke: 1.2px rgba(240,240,240,1); padding: 5px 8px 5px 8px; margin: 0px 8px; border-radius: 23px; border: 0px solid transparent; font-weight: bold"),
+				o.setAttribute("style", "display: flex; justify-content: center; align-items: center; position: relative; cursor: pointer; width: 36px; height: 36px; background: rgba(255,0,62,0.3); margin: 0px 8px; border-radius: 100%; border: none;"),
 				o.setAttribute("onmouseover", "this.style.backgroundColor='rgba(255,0,62,0.5)'"),
 				o.setAttribute("onmouseout", "this.style.backgroundColor='rgba(255,0,62,0.3)'"), o }
 		catch (o) { console.log("Error in function Y2mate.GetCommandButton. ", o) } },
