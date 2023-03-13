@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Y2mate Converter Button
+// @name        Y2mate Converter Button (For Dark Theme)
 // @namespace   https://www.y2mate.com/
 // @version     1.8
 // @date        2022-12-11

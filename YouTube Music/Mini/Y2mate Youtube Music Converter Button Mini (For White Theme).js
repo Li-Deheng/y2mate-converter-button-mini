@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name        Y2mate Converter Button Mini (For White Theme)
+// @name        Y2mate Youtube Music Converter Button Mini (For White Theme)
 // @namespace   https://www.y2mate.com/
 // @version     1.8
-// @date        2022-12-11
+// @date        2022-12-13
 // @author      A Koi (mod: Li Deheng)
 // @description Y2mate Downloader: Download Video and Audio for free
 // @homepage    https://y2mate.com/
@@ -33,11 +33,8 @@
 // @grant       GM.openInTab
 // @grant       GM.setClipboard
 // @grant       GM.xmlHttpRequest
-// @connect     youtube.com
-// @connect     m.youtube.com
-// @connect     www.youtube.com
-// @connect     youtube-nocookie.com
-// @connect     youtu.be
+// @connect     music.youtube.com
+// @connect     www.music.youtube.com
 // @connect     www.y2mate.com
 // @connect     self
 // @connect     *
@@ -49,8 +46,7 @@ var AKoiMain = {
 	DocOnLoad: function (o) {
 		try {
 			if (null != o && null != o.body && null != o.location && (AKoiMain.vid = AKoiMain.getVid(o), AKoiMain.vid)) {
-				o.querySelector("#top-level-buttons-computed").setAttribute("style", "flex-wrap: wrap;");
-				var t = o.querySelector("#top-level-buttons-computed ytd-segmented-like-dislike-button-renderer"),
+				var t = o.querySelector("#like-button-renderer"),
 				e = o.querySelector("#y2mateconverter"),
 				n = AKoiMain.GetCommandButton();
 				null == e && (null != t ? t.parentNode.insertBefore(n, t.nextSibling) : (t = o.querySelector("#eow-title")).parentNode.insertBefore(n, t)),
@@ -64,7 +60,7 @@ var AKoiMain = {
 			AKoiMain.oldUrl == window.location.href ? AKoiMain.checkChangeVid() : AKoiMain.WaitLoadDom(window.document) }, 1e3) },
 		WaitLoadDom: function (o) {
 			AKoiMain.vid = AKoiMain.getVid(o),
-			AKoiMain.vid ? null != o.querySelector("#info #menu-container") ? AKoiMain.DocOnLoad(o) : setTimeout(function () { AKoiMain.WaitLoadDom(o) }, 1e3) : AKoiMain.checkChangeVid() },
+			AKoiMain.vid ? null != o.querySelector("#progress-bar #sliderContainer") ? AKoiMain.DocOnLoad(o) : setTimeout(function () { AKoiMain.WaitLoadDom(o) }, 1e3) : AKoiMain.checkChangeVid() },
 	goToY2mate: function (o) {
 		try {
 			var t = "https://y2mate.com/youtube/" + AKoiMain.vid + "/?utm_source=chrome_addon";
@@ -79,9 +75,9 @@ var AKoiMain = {
 				o.setAttribute("title", "Download with\ny2mate.com"),
 				o.innerHTML = '<img width="32px" height="32px" src="https://user-images.githubusercontent.com/48417413/224731547-6c5deb0e-d26a-4763-afdb-63f3e4812571.svg">',
 				o.addEventListener("click", function (o) { AKoiMain.goToY2mate(o) }, !0),
-				o.setAttribute("style", "display: flex; justify-content: center; align-items: center; position: relative; cursor: pointer; width: 36px; height: 36px; background: rgba(255,0,62,0.3); margin: 0px 8px; border-radius: 18px; border: none;"),
-				o.setAttribute("onmouseover", "this.style.backgroundColor='rgba(255,0,62,0.5)'"),
-				o.setAttribute("onmouseout", "this.style.backgroundColor='rgba(255,0,62,0.3)'"), o }
+				o.setAttribute("style", "display: flex; justify-content: center; align-items: center; position: relative; cursor: pointer; width: 36px; height: 36px; background: rgba(255,0,62,0.0); margin: 0px 0px 0px 8px; border-radius: 18px; border: none;"),
+				o.setAttribute("onmouseover", "this.style.backgroundColor='rgba(255,0,62,0.3)'"),
+				o.setAttribute("onmouseout", "this.style.backgroundColor='rgba(255,0,62,0.0)'"), o }
 		catch (o) { console.log("Error in function Y2mate.GetCommandButton. ", o) } },
 	getVid: function (o) {
 		var t = o.location.toString().match(/^.*((m\.)?youtu\.be\/|vi?\/|u\/\w\/|embed\/|\?vi?=|\&vi?=)([^#\&\?]*).*/);
