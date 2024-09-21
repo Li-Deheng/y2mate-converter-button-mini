@@ -90,7 +90,7 @@ var AKoiMain = {
 
       // Add event handlers for hovering over and leaving the button
       o.addEventListener("mouseover", function () {
-        this.style.backgroundColor = "rgba(255,0,62,0.5)";
+        this.style.backgroundColor = "rgba(255,0,62,0.3)";
       });
       o.addEventListener("mouseout", function () {
         this.style.backgroundColor = "rgba(0,0,0,0.05)";
