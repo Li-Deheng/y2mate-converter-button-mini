@@ -69,7 +69,7 @@ var AKoiMain = {
         if (null == e && null != t) {
           t.parentNode.insertBefore(n, t.nextSibling);
         } else if (null == e) {
-          var te = o.querySelector("#owner #subscribe-button");
+          var te = o.querySelector(".YtSegmentedLikeDislikeButtonViewModelHost"); // #owner #subscribe-button
           te.parentNode.insertBefore(n, te);
         }
       }
