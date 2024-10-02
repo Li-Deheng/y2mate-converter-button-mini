@@ -7,11 +7,11 @@
 // @homepage    https://y2mate.com/
 // @icon        https://y2mate.com/themes/images/logo.png
 // @icon64      https://y2mate.com/themes/images/logo.png
-// @updateURL   https://www.y2mate.com/extensions/chrome/helper.meta.js
-// @downloadURL https://www.y2mate.com/extensions/chrome/helper.user.js
-// @match       https://youtube.com/*
-// @include     http://*
-// @include     https://*
+// @supportURL  https://github.com/Li-Deheng/y2mate-converter-button-mini/issues
+// @downloadURL https://github.com/Li-Deheng/y2mate-converter-button-mini
+// @updateURL   https://github.com/Li-Deheng/y2mate-converter-button-mini/commits/main
+// @homepageURL https://github.com/Li-Deheng/y2mate-converter-button-mini
+// @match       *://*.youtube.com/*
 // @run-at      document-end
 // @grant       GM_listValues
 // @grant       GM_setValue
@@ -43,6 +43,20 @@
 // @connect     *
 // ==/UserScript==
 
+/* global trustedTypes */
+
+// Check for Trusted Types support
+if (window.trustedTypes) {
+  // Creating a security policy
+  window.trustedTypes.createPolicy('default', {
+    createHTML: (input) => input,
+    createScript: (input) => input,
+    createScriptURL: (input) => input,
+  });
+} else {
+  console.warn("Trusted Types are not supported by this browser.");
+}
+
 var AKoiMain = {
   vid: null,
   DocOnLoad: function (o) {
@@ -60,7 +74,7 @@ var AKoiMain = {
         }
       }
     } catch (o) {
-      console.log("Error in function Y2mate.DocOnLoad.", o);
+      console.log("Error in function Y2mate.DocOnLoad. ", o);
     }
   },
   goToY2mate: function (o) {
@@ -68,9 +82,10 @@ var AKoiMain = {
       var t = "https://y2mate.com/youtube/" + AKoiMain.vid + "/?utm_source=chrome_addon";
       window.open(t, "_blank");
     } catch (o) {
-      console.log("Error in function Y2mate.OnButtonClick.", o);
+      console.log("Error in function Y2mate.OnButtonClick. ", o);
     }
   },
+
   GetCommandButton: function () {
     try {
       var o = document.createElement("button");
@@ -78,8 +93,15 @@ var AKoiMain = {
       o.className = "yt-uix-tooltip";
       o.setAttribute("type", "button");
       o.setAttribute("title", "Download with\ny2mate.com");
-      o.innerHTML =
-        '<img width="32px" height="32px" src="https://user-images.githubusercontent.com/48417413/224731547-6c5deb0e-d26a-4763-afdb-63f3e4812571.svg">';
+
+      if (window.trustedTypes) {
+        o.innerHTML = trustedTypes.defaultPolicy.createHTML(
+          '<img width="32px" height="32px" src="https://user-images.githubusercontent.com/48417413/224731547-6c5deb0e-d26a-4763-afdb-63f3e4812571.svg">'
+        );
+      } else {
+        o.innerHTML = '<img width="32px" height="32px" src="https://user-images.githubusercontent.com/48417413/224731547-6c5deb0e-d26a-4763-afdb-63f3e4812571.svg">';
+      }
+
       o.addEventListener("click", function (o) {
         AKoiMain.goToY2mate(o);
       }, !0);
@@ -131,3 +153,5 @@ AKoiMain.DocOnLoad(document);
 
 // Launch MutationObserver to track changes on the page
 observeDOM();
+
+
